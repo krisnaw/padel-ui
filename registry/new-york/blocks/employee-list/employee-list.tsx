@@ -98,10 +98,10 @@ function EmployeeItems() {
                                 <DropdownMenuContent align="end">
                                     <DropdownMenuLabel>Actions</DropdownMenuLabel>
                                     <DropdownMenuItem>
-                                        Copy payment ID
+                                        Copy employee ID
                                     </DropdownMenuItem>
                                     <DropdownMenuSeparator />
-                                    <DropdownMenuItem>View customer</DropdownMenuItem>
+                                    <DropdownMenuItem>View employee</DropdownMenuItem>
                                     <DropdownMenuItem>View payment details</DropdownMenuItem>
                                 </DropdownMenuContent>
                             </DropdownMenu>
