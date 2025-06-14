@@ -3,57 +3,81 @@ import {Card, CardAction, CardContent, CardHeader, CardTitle} from "@/registry/n
 import {Input} from "@/registry/new-york/ui/input";
 import {Tabs, TabsContent, TabsList, TabsTrigger} from "@/registry/new-york/ui/tabs";
 import {Avatar, AvatarFallback, AvatarImage} from "@/registry/new-york/ui/avatar";
+import {EllipsisVertical} from "lucide-react";
+import {Badge} from "@/registry/new-york/ui/badge";
 
 const employeeSample = [
     {
         id: 1,
-        avatar_url: 'https://github.com/shadcn.png',
+        avatar_url: 'https://i.pravatar.cc/152',
         full_name: 'Leonardo',
-        email: 'Leonardo@verkel.com'
+        role: 'Design Lead',
+        category: 'Product',
+        class: 'bg-blue-100 text-blue-700 dark:bg-blue-600'
     },
     {
         id: 2,
-        avatar_url: 'https://github.com/johndoe.png',
+        avatar_url: 'https://i.pravatar.cc/122',
         full_name: 'John Doe',
-        email: 'john.doe@verkel.com'
+        role: 'Product Manager',
+        category: 'Management',
+        class: 'bg-yellow-100 text-yellow-700 dark:bg-yellow-600'
     },
     {
         id: 3,
-        avatar_url: 'https://github.com/janedoe.png',
+        avatar_url: 'https://i.pravatar.cc/159',
         full_name: 'Jane Doe',
-        email: 'jane.doe@verkel.com'
+        role: 'Senior Developer',
+        category: 'Development',
+        class: 'bg-green-100 text-green-700 dark:bg-green-600'
     },
     {
         id: 4,
-        avatar_url: 'https://github.com/bobsmith.png',
+        avatar_url: 'https://i.pravatar.cc/132',
         full_name: 'Bob Smith',
-        email: 'bob.smith@verkel.com'
+        role: 'UX Designer',
+        category: 'Product',
+        class: 'bg-blue-100 text-blue-700 dark:bg-blue-600'
     },
     {
         id: 5,
-        avatar_url: 'https://github.com/alicejones.png',
+        avatar_url: 'https://i.pravatar.cc/192',
         full_name: 'Alice Jones',
-        email: 'alice.jones@verkel.com'
+        role: 'Technical Lead',
+        category: 'Management',
+        class: 'bg-yellow-100 text-yellow-700 dark:bg-yellow-600'
     }
 ]
 
 function EmployeeItems() {
     return (
-        <div>
+        <div className="space-y-6">
             {employeeSample.map((item) => (
                 <div className="mt-2" key={item.id}>
-                    <div className="flex items-center">
-                        <div className="mr-4 shrink-0">
-                            <Avatar className="size-12 rounded-lg">
-                                <AvatarImage src={item.avatar_url}/>
-                                <AvatarFallback>CN</AvatarFallback>
-                            </Avatar>
+                    <div className="flex justify-between items-center">
+                        <div className="flex items-start">
+                            <div className="mr-4 shrink-0">
+                                <Avatar className="size-14 rounded-lg">
+                                    <AvatarImage src={item.avatar_url}/>
+                                    <AvatarFallback>CN</AvatarFallback>
+                                </Avatar>
+                            </div>
+                            <div>
+                                <p className="font-medium">{item.full_name}</p>
+                                <p className="text-sm text-muted-foreground">
+                                    {item.role}
+                                    <Badge
+                                        variant="secondary"
+                                        className={`font-bold ml-2.5 rounded-sm ${item.class}`}
+                                    >
+                                        {item.category}
+                                    </Badge>
+                                </p>
+
+                            </div>
                         </div>
                         <div>
-                            <p className="font-medium">{item.full_name}</p>
-                            <p className="text-sm text-muted-foreground">
-                                {item.email}
-                            </p>
+                            <EllipsisVertical className="text-muted-foreground"/>
                         </div>
                     </div>
                 </div>
@@ -95,54 +119,15 @@ export function EmployeeList() {
                             </TabsContent>
 
                             <TabsContent value="management">
-                                <div className="mt-2">
-                                    <div className="flex items-center">
-                                        <div className="mr-4 shrink-0">
-                                            <Avatar className="size-12 rounded-lg">
-                                                <AvatarImage src="https://github.com/shadcn.png"/>
-                                                <AvatarFallback>CN</AvatarFallback>
-                                            </Avatar>
-                                        </div>
-                                        <div>
-                                            <p className="font-medium">Leonardo</p>
-                                            <p className="text-sm text-muted-foreground">Leonardo@verkel.com</p>
-                                        </div>
-                                    </div>
-                                </div>
+                                <EmployeeItems/>
                             </TabsContent>
 
                             <TabsContent value="product">
-                                <div className="mt-2">
-                                    <div className="flex items-center">
-                                        <div className="mr-4 shrink-0">
-                                            <Avatar className="size-12 rounded-lg">
-                                                <AvatarImage src="https://github.com/shadcn.png"/>
-                                                <AvatarFallback>CN</AvatarFallback>
-                                            </Avatar>
-                                        </div>
-                                        <div>
-                                            <p className="font-medium">Leonardo</p>
-                                            <p className="text-sm text-muted-foreground">Leonardo@verkel.com</p>
-                                        </div>
-                                    </div>
-                                </div>
+                                <EmployeeItems/>
                             </TabsContent>
 
                             <TabsContent value="development">
-                                <div className="mt-2">
-                                    <div className="flex items-center">
-                                        <div className="mr-4 shrink-0">
-                                            <Avatar className="size-12 rounded-lg">
-                                                <AvatarImage src="https://github.com/shadcn.png"/>
-                                                <AvatarFallback>CN</AvatarFallback>
-                                            </Avatar>
-                                        </div>
-                                        <div>
-                                            <p className="font-medium">Leonardo</p>
-                                            <p className="text-sm text-muted-foreground">Leonardo@verkel.com</p>
-                                        </div>
-                                    </div>
-                                </div>
+                                <EmployeeItems/>
                             </TabsContent>
                         </Tabs>
                     </div>
