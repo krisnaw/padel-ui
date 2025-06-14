@@ -17,6 +17,20 @@
       ]
     },
     {
+      "name": "employee-list",
+      "type": "registry:component",
+      "title": "Employee List",
+      "descriptions": "A simple employee list components",
+      "registryDependencies": ["button", "card", "input"],
+      "files": [
+        {
+          "path": "registry/new-york/blocks/employee-list/page.tsx",
+          "type": "registry:page",
+          "target": "app/employee-list/page.tsx"
+        }
+      ]
+    },
+    {
       "name": "example-form",
       "type": "registry:component",
       "title": "Example Form",
