@@ -20,13 +20,12 @@
       "name": "employee-list",
       "type": "registry:component",
       "title": "Employee List",
-      "descriptions": "A simple employee list components",
-      "registryDependencies": ["button", "card", "input"],
+      "descriptions": "A simple employee list component",
+      "registryDependencies": ["button", "card", "input", "tabs", "dropdown-menu", "avatar"],
       "files": [
         {
-          "path": "registry/new-york/blocks/employee-list/page.tsx",
-          "type": "registry:page",
-          "target": "app/employee-list/page.tsx"
+          "path": "registry/new-york/blocks/employee-list/employee-list.tsx",
+          "type": "registry:component"
         }
       ]
     },
