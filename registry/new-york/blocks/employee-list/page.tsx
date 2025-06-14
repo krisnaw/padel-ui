@@ -5,6 +5,7 @@ import {Tabs, TabsContent, TabsList, TabsTrigger} from "@/registry/new-york/ui/t
 import {Avatar, AvatarFallback, AvatarImage} from "@/registry/new-york/ui/avatar";
 import {EllipsisVertical} from "lucide-react";
 import {Badge} from "@/registry/new-york/ui/badge";
+import {useMemo} from "react";
 
 const employeeSample = [
     {
@@ -50,9 +51,11 @@ const employeeSample = [
 ]
 
 function EmployeeItems() {
+    const shuffledEmployees = useMemo(() => [...employeeSample].sort(() => Math.random() - 0.5), []);
+
     return (
         <div className="space-y-6">
-            {employeeSample.map((item) => (
+            {shuffledEmployees.map((item) => (
                 <div className="mt-2" key={item.id}>
                     <div className="flex justify-between items-center">
                         <div className="flex items-start">
@@ -129,6 +132,7 @@ export function EmployeeList() {
                             <TabsContent value="development">
                                 <EmployeeItems/>
                             </TabsContent>
+
                         </Tabs>
                     </div>
                 </div>
